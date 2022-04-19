@@ -4,9 +4,12 @@ module DailyFour where
 --creating a new singular list. assuming lists are the same size, handles base cases
 --and outputs a list of tuples, ie [1,3,5] [2,4,6] = [(1,2),(3,4),(5,6)]
 zip3Lists :: [a] -> [b] -> [c] -> [(a,b,c)]
-zip3Lists _ _ [] = []
-zip3Lists _ [] _ = []
-zip3Lists [] _ _ = []
+zip3Lists [][][] = []
+--conditions for haskell to not throw a fit at me
+zip3Lists [][](_:_) = []
+zip3Lists [](_:_)[] = []
+zip3Lists [](_:_)(_:_) = []
+zip3Lists [_][_][] = []
 zip3Lists (x:xs) (y:ys) (z:zs) = (x,y,z) : zip3Lists xs ys zs
 
 --does the opposite of zip3Lists, and takes a list of tuples and returns a tuple of 3 lists
@@ -15,6 +18,7 @@ unzipTriples :: [(a,b,c)] -> ([a], [b], [c])
 unzipTriples [] = ([], [], [])
 unzipTriples ((x, y, z):xs) = (x : first rem, y : second rem, z : third rem)
     where rem = unzipTriples xs
+--these three functions give the respective element in the tuple
 first :: (x,y,z) -> x
 first (x, _, _) = x
 second :: (x,y,z) -> y
@@ -22,8 +26,8 @@ second (_, y, _) = y
 third :: (x,y,z) -> z
 third (_, _, z) = z
 
---crazy funny function that essentially zips 3 lists then sorts them
---in this case, whilst zipping i also sort the elements
+--function that essentially zips 3 lists then sorts them
+--in this case, whilst zipping, i also sort the elements
 --accepts 3 lists and outputs a single list, sorted
 --ie [2, 3, 5] [1, 8] [-1, 0, 4, 10] = [-1, 0, 1, 2, 3, 4, 5, 8, 10]
 mergeSorted3 :: Ord a => [a] -> [a] -> [a] -> [a]
