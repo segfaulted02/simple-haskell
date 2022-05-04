@@ -1,4 +1,4 @@
-module DailySix where
+module DailySixSpec where
 
 import Test.Hspec
 import DailySix
@@ -23,6 +23,6 @@ spec = do
         it "word" $
             onlyJust [Nothing, Just 5, Nothing, Just 10] `shouldBe` [Just 5,Just 10]
         it "word" $
-            onlyJust [] `shouldBe` []
+            onlyJust ([] :: [Maybe Int]) `shouldBe` []
         it "word" $
-            onlyJust [Nothing, Nothing, Nothing, Nothing] `shouldBe` []
+            onlyJust [Nothing, Just 4] `shouldBe` []
