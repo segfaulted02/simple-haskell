@@ -13,6 +13,8 @@ findLargest lst = foldr (\x y -> if x > y then x else y) 0 lst
 
 --function that checks if all values in a list are True
 --accepts a list of bools then returns a bool
+--note, I am assuming that if the list of empty to return false, it is not specified
+--in the directions. if this is not the case, remove line 19.
 allTrue :: [Bool] -> Bool
 allTrue [] = False
 allTrue lst = foldr (&&) True lst

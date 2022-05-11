@@ -25,6 +25,7 @@ source-repository head
 
 library
   exposed-modules:
+      DailyEight
       DailyFive
       DailyFour
       DailyOne
@@ -35,6 +36,7 @@ library
       Lib
       TriTree
       WeeklyHaskellOne
+      WeeklyThree
   other-modules:
       Paths_DailyHaskell
   hs-source-dirs:
@@ -61,6 +63,7 @@ test-suite DailyHaskell-test
   type: exitcode-stdio-1.0
   main-is: Spec.hs
   other-modules:
+      DailyEightSpec
       DailyFiveSpec
       DailyFourSpec
       DailyOneSpec
