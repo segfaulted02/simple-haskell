@@ -1,7 +1,7 @@
 module DailyEight where
 
 data Event = Event {name :: String, day :: Int, month :: String,
-year :: Int, xlocation :: Float, ylocation :: Float} deriving (Show)
+year :: Int, xlocation :: Float, ylocation :: Float} deriving (Eq, Show)
 
 --function that checks whether an event happened within a certain year
 --accepts an Int year and a list of events then returns a list of events
