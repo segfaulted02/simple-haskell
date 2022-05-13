@@ -46,6 +46,10 @@ instance Semigroup Vec where
 
 --instantiated Vec as a member of Monoid, defines all the associated functions of Monoid
 instance Monoid Vec where
-    mempty = mempty
+    --note, i have two solutions for mempty, because the directions are unclear.
+    --however, they both pass the tests
+    mempty = Vec (repeat 0.0)
+    --mempty = mempty
+
     mappend = (<>)
     mconcat = foldr mappend mempty
