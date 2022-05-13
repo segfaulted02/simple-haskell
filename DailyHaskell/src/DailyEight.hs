@@ -1,5 +1,6 @@
 module DailyEight where
 
+--typeclass that defines the event
 data Event = Event {name :: String, day :: Int, month :: String,
 year :: Int, xlocation :: Float, ylocation :: Float} deriving (Eq, Show)
 
